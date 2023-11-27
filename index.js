@@ -8,8 +8,10 @@
 let numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 const handleClick = () => {
-    let audio = new Audio("sounds/tom-1.mp3");
-    audio.play();
+    // let audio = new Audio("sounds/tom-1.mp3");
+    // audio.play();
+
+    console.log(this);
 
     
     }
