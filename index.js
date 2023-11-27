@@ -5,16 +5,9 @@
 // querySelectorAll then pass in ".drum" to targer that class which are on the buttons, then when click on button will call the handleClick() function
 
 
+// Detecting Button Press
 let numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
-const handleClick = () => {
-    // let audio = new Audio("sounds/tom-1.mp3");
-    // audio.play();
-
-    console.log(this);
-
-    
-    }
 
 for(let i = 0; i < numberOfDrumButtons; i++) {
 
@@ -22,58 +15,77 @@ for(let i = 0; i < numberOfDrumButtons; i++) {
 
     let buttonInnerHTML = this.innerHTML;
 
-        switch (buttonInnerHTML) {
-            case "w":
-           
-                let tom1 = new Audio("sounds/tom-1.mp3");
-                tom1.play();
-                break;
-
-            case "a":
-           
-                let tom2 = new Audio("sounds/tom-2.mp3");
-                tom2.play();
-                break;
-
-            case "s":
-            
-                let tom3 = new Audio("sounds/tom-3.mp3");
-                tom3.play();
-                break;     
-                
-            case "d":
-            
-                let tom4 = new Audio("sounds/tom-4.mp3");
-                tom4.play();
-                break;
-
-            case "j":
-            
-                let snare = new Audio("sounds/snare.mp3");
-                snare.play();
-                break;
-            
-            case "k":
-            
-                let crash = new Audio("sounds/crash.mp3");
-                crash.play();
-                break;
-
-            case "l":
-            
-                let kick = new Audio("sounds/kick-bass.mp3");
-                kick.play();
-                break;
-
-            default:
-                console.log(this);
-                break;
-        }
-
+    makeSound(buttonInnerHTML);
+       
     });
-
     
 }
+
+
+// Detecting Keyboard Press
+document.addEventListener("keydown", function (event) {
+
+    makeSound(event.key);
+
+});
+
+
+
+const makeSound = (key) => {
+
+    switch (key) {
+        case "w":
+       
+            let tom1 = new Audio("sounds/tom-1.mp3");
+            tom1.play();
+            break;
+
+        case "a":
+       
+            let tom2 = new Audio("sounds/tom-2.mp3");
+            tom2.play();
+            break;
+
+        case "s":
+        
+            let tom3 = new Audio("sounds/tom-3.mp3");
+            tom3.play();
+            break;     
+            
+        case "d":
+        
+            let tom4 = new Audio("sounds/tom-4.mp3");
+            tom4.play();
+            break;
+
+        case "j":
+        
+            let snare = new Audio("sounds/snare.mp3");
+            snare.play();
+            break;
+        
+        case "k":
+        
+            let crash = new Audio("sounds/crash.mp3");
+            crash.play();
+            break;
+
+        case "l":
+        
+            let kick = new Audio("sounds/kick-bass.mp3");
+            kick.play();
+            break;
+
+        default:
+            console.log(`The "${key}" is not a valid button!`);
+            break;
+    }
+
+
+}
+
+
+
 
 
 
