@@ -16,7 +16,7 @@ for(let i = 0; i < numberOfDrumButtons; i++) {
     let buttonInnerHTML = this.innerHTML;
 
     makeSound(buttonInnerHTML);
-       
+    buttonAnimation(buttonInnerHTML);
     });
     
 }
@@ -26,7 +26,7 @@ for(let i = 0; i < numberOfDrumButtons; i++) {
 document.addEventListener("keydown", function (event) {
 
     makeSound(event.key);
-
+    buttonAnimation(event.key);
 });
 
 
@@ -80,6 +80,21 @@ const makeSound = (key) => {
             console.log(`The "${key}" is not a valid button!`);
             break;
     }
+
+}
+
+
+
+// Animation for when mouse click on button or keydown press correct button
+buttonAnimation = (currentKey) => {
+
+    let activeButton = document.querySelector(`.${currentKey}`)
+
+    activeButton.classList.add("pressed");
+
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100);
 
 
 }
